@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
+using _24HourProject.Models;
 using _24HourProject.Services;
 using Microsoft.AspNet.Identity;
 
@@ -19,24 +20,24 @@ namespace _24HourProject.Controllers
             var postService = new PostService(postId);
             return postService;
         }
-    }
-    public IHttpActionResult Get()
-    {
-        PostService postService = CreatePostService();
-        var posts = postService.GetPosts();
-        return Ok(posts);
+        public IHttpActionResult Get()
+        {
+            PostService postService = CreatePostService();
+            var posts = postService.GetPosts();
+            return Ok(posts);
 
-    }
-    public IHttpActionResult Post(PostCreate post)
-    {
-        if (!ModelState.IsValid)
-            return BadRequest(ModelState);
+        }
+        public IHttpActionResult Post(PostCreate post)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-        var service = CreatePostService();
+            var service = CreatePostService();
 
-        if (!service.CreatePost(post))
-            return InternalServerError();
+            if (!service.CreatePost(post))
+                return InternalServerError();
 
-        return Ok();
+            return Ok();
+        }
     }
 }

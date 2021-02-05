@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _24HourProject.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -11,8 +12,8 @@ namespace _24HourProject.Controllers
     {
         public IHttpActionResult Get(int id)
         {
-            ReplyService commentService = CreateReplyService();
-            var reply = replyService.GetReplyById(id);
+            ReplyService replyService = CreateReplyService();
+            var reply = replyService.GetReplyByID(id);
             return Ok(reply);
         }
     }

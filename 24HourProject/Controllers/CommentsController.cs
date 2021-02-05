@@ -4,8 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using _24HourProject.Services;
 using Microsoft.AspNet.Identity;
+using _24HourProject.Services;
 
 namespace _24HourProject.Controllers
 {
@@ -14,8 +14,8 @@ namespace _24HourProject.Controllers
     {
         public IHttpActionResult Get(int id)
         {
-            CommentsService commentService = CreateCommentsService();
-            var comments = commentsService.GetCommentsById(id);
+            CommentService commentService = CreateCommentService();
+            var comments = commentService.GetCommentByID(id);
             return Ok(comments);
         }
     }

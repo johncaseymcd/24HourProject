@@ -4,11 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using _24HourProject.Data;
+using _24HourProject.Models;
 
 namespace _24HourProject.Services
 {
     public class PostService
     {
+        private readonly Guid _postID;
+        public PostService(Guid postID)
+        {
+            _postID = postID;
+        }
+
         public bool CreatePost(PostCreate model)
         {
             var entity = new Post
@@ -25,7 +32,7 @@ namespace _24HourProject.Services
             }
         }
 
-        public IEnumerable<Post> GetAllPosts()
+        public IEnumerable<Post> GetPosts()
         {
             using (var ctx = new ApplicationDbContext())
             {

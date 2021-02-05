@@ -1,4 +1,5 @@
 ﻿using _24HourProject.Data;
+using _24HourProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,7 +48,6 @@ namespace _24HourProject.Services
                     .Select(
                         e => new CommentListItem
                         {
-                            CommentID = e.CommentID,
                             Text = e.text,
                             CreatedUTC = e.CreatedUTC
                         }

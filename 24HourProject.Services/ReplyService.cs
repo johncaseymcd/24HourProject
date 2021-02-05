@@ -25,15 +25,7 @@ namespace _24HourProject.Services
             }
        }
 
-        public IEnumerable<Reply> GetAllReplies()
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                return ctx.Replies.ToList<Reply>();
-            }
-        }
-
-        public Reply GetReplyByID(int id)
+       public Reply GetReplyByID(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -70,7 +62,9 @@ namespace _24HourProject.Services
 
         public IEnumerable<Reply> GetRepliesByCommentID(int id)
         {
-            var query =
+            using(var ctx = new ApplicationDbContext())
+            {
+                var query =
                 ctx.Replies
                 .Where(e => e.CommentID == id)
                 .Select(
@@ -83,7 +77,8 @@ namespace _24HourProject.Services
                         }
                 );
 
-            return query.ToList<Reply>();
+                return query.ToList<Reply>();
+            }            
         }
 
         public bool UpdateReply(ReplyEdit model)
