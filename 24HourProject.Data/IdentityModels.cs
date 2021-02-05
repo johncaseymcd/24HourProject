@@ -17,8 +17,6 @@ namespace _24HourProject.Data
         }
     }
 
-    ////////////////////////////////////// test my upload /////////////////////////////
-
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
@@ -30,5 +28,13 @@ namespace _24HourProject.Data
         {
             return new ApplicationDbContext();
         }
+
+        //public DbSet<User> Users { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<Comment> Comment { get; set; }
+
+        public DbSet<Reply> Reply { get; set; }
+
+        public DbSet<Post> Post { get; set; }
     }
 }
