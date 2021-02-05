@@ -21,5 +21,5 @@ namespace _24HourProject.Data
         public string Email { get; set; }
     }
 
-    test
+    test 2
 }
