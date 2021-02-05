@@ -13,24 +13,19 @@ namespace _24HourProject.Data
     {
         [Key]
         public int CommentId { get; set; }                                         
+        
         [MaxLength(64, ErrorMessage = "Max character reached")]        
         public string Text { get; set; }               
+        
         [Required]
-        [ForeignKey(nameof(UserId))]
-        public Guid UserId { get; set; }           
+        public Guid Author { get; set; }           
        
         [Required]
         public virtual Reply Reply { get; set; }
-        
+           
         [Required]
-        [ForeignKey(nameof(Commet))]
-        public int PostId { get; set; }
-        public virtual Comment Commet { get; set; }
-    }
-
-    public class Reply : Comment
-    {
-        [Required]
-        public int ReplyCommentID { get; set; }
+        [ForeignKey(nameof(Post))]
+        public Post PostId { get; set; }
+        public virtual Post Post { get; set; }
     }
 }
