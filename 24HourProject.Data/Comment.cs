@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,27 +12,25 @@ namespace _24HourProject.Data
     public class Comment
     {
         [Key]
-        public int CommentId { get; set; }
-
-
-        // Body of comment
-        public string Text { get; set; }
-
-
-        // Who is writing the comment
-        public Guid Author { get; set; }
-
-
-        // CommentPost is which post we're commenting on
-        public Post CommentPost { get; set; }
+        public int CommentId { get; set; }                                         
+        [MaxLength(64, ErrorMessage = "Max character reached")]        
+        public string Text { get; set; }               
+        [Required]
+        [ForeignKey(nameof(UserId))]
+        public Guid UserId { get; set; }           
+       
+        [Required]
+        public virtual Reply Reply { get; set; }
+        
+        [Required]
+        [ForeignKey(nameof(Commet))]
         public int PostId { get; set; }
-        public virtual Post Post { get; set; }
+        public virtual Comment Commet { get; set; }
+    }
+
+    public class Reply : Comment
+    {
+        [Required]
+        public int ReplyCommentID { get; set; }
     }
 }
-
-// What is required
-//int Id
-//string Text
-//Guid Author (using user ID)
-//(virtual list of Replies)
-//(Foreign Key to Post via Id w/ virtual Post)

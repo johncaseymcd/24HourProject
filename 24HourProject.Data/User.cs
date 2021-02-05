@@ -19,7 +19,5 @@ namespace _24HourProject.Data
         [Required]
         [Display(Name = "Enter Email")]
         public string Email { get; set; }
-    }
-
-    test 2
+    }  
 }
