@@ -14,9 +14,9 @@ namespace _24HourProject.Controllers
     {
         public IHttpActionResult Get(int id)
         {
-            CommentService commentService = CreateCommentService();
-            var comment = commentService.GetCommentById(id);
-            return Ok(comment);
+            CommentsService commentService = CreateCommentsService();
+            var comments = commentsService.GetCommentsById(id);
+            return Ok(comments);
         }
     }
 }

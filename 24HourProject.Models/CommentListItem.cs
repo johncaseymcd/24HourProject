@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
 
 namespace _24HourProject.Models
 {
-    public class CommentCreate
+    public class CommentListItem
     {
-        [Required]
+        public int PostId { get; set; }
         public string Text { get; set; }
-
     }
 }
