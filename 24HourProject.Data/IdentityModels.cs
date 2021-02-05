@@ -17,6 +17,8 @@ namespace _24HourProject.Data
         }
     }
 
+    ////////////////////////////////////// test my upload /////////////////////////////
+
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
