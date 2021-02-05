@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _24HourProject.Services
+namespace _24HourProject.Models
 {
-    public class Class1
+    class PostListItem
     {
     }
 }
