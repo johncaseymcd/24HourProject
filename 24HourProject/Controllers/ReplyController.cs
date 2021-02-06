@@ -17,7 +17,7 @@ namespace _24HourProject.Controllers
             var replyService = new ReplyService(userId);
             return replyService; 
         }
-        public IHttpActionResult Get(Guid id)
+        public IHttpActionResult Get(int id)
         {
             ReplyService replyService = CreateReplyService();
             var reply = replyService.GetReplyByID(id);

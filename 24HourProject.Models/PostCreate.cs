@@ -9,7 +9,6 @@ namespace _24HourProject.Models
 {
     public class PostCreate
     {
-        [Required]
         public Guid Author { get; set; }
         [Required]
         public string Title { get; set; }

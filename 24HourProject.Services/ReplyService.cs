@@ -10,11 +10,11 @@ namespace _24HourProject.Services
 {
     public class ReplyService
     {
-        private readonly Guid _replyID;
+        private readonly Guid _userID;
 
         public ReplyService(Guid id)
         {
-            _replyID = id;
+            _userID = id;
         }
 
        public bool CreateReply(ReplyCreate model)
@@ -22,7 +22,7 @@ namespace _24HourProject.Services
             var entity = new Reply()
             {
                 Content = model.Reply,
-                UserId = model.Author,
+                UniqueID = _userID,
                 CreatedUTC = model.CreatedUTC
             };
 
