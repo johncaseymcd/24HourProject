@@ -10,16 +10,18 @@ namespace _24HourProject.Services
 {
     public class PostService
     {
-        private readonly Guid _postID;
-        public PostService(Guid postID)
+        private readonly Guid _userID;
+        public PostService(Guid userID)
         {
-            _postID = postID;
+            _userID = userID;
         }
 
         public bool CreatePost(PostCreate model)
         {
             var entity = new Post
             {
+                Author = _userID,
+                Title = model.Title,
                 Text = model.Text,
                 CreatedUtc = DateTimeOffset.Now
             };

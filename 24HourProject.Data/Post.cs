@@ -10,7 +10,7 @@ namespace _24HourProject.Data
     public class Post
     {
         [Key]
-        public Guid PostID { get; set; }
+        public int PostID { get; set; }
 
         [Required]
         [Display(Name = "Post")]
@@ -23,8 +23,8 @@ namespace _24HourProject.Data
         [Required]
         public virtual List<Comment> Comments { get; set; }            
 
-        [Required]
-        public Guid Author { get; set; }
+        //[Required]
+        //public Guid Author { get; set; }
 
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
