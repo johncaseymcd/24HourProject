@@ -10,7 +10,7 @@ namespace _24HourProject.Controllers
 {
     public class ReplyController : ApiController
     {
-        public IHttpActionResult Get(int id)
+        public IHttpActionResult Get(Guid id)
         {
             ReplyService replyService = CreateReplyService();
             var reply = replyService.GetReplyByID(id);

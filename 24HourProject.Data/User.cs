@@ -23,7 +23,7 @@ namespace _24HourProject.Data
 
         [Required]
         [ForeignKey(nameof(Comment))]
-        public Guid CommnetId { get; set; }
+        public Guid CommentId { get; set; }
         public virtual Comment Comment { get; set; }
 
         [Required]
