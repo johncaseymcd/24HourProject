@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "24HourProject.WebAPI", "24HourProject\24HourProject.WebAPI.csproj", "{347E0109-70A1-49C9-99A0-A56A70DC7670}"
+	ProjectSection(ProjectDependencies) = postProject
+		{954D1CFD-B7B5-4793-9E4E-E4E98836D9A1} = {954D1CFD-B7B5-4793-9E4E-E4E98836D9A1}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "24HourProject.Data", "24HourProject.Data\24HourProject.Data.csproj", "{160533B0-3EC8-4003-B652-26DB010CB5E2}"
 EndProject
