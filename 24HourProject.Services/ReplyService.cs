@@ -1,4 +1,5 @@
 ﻿using _24HourProject.Data;
+using _24HourProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,9 @@ namespace _24HourProject.Services
        {
             var entity = new Reply()
             {
-                Text = model.Text,
-                Author = model.UserID,
-                CreatedUTC = model.CreatedUTC
+                Content = model.Reply,
+                UserId = model.Author,
+                CreatedUtc = model.CreatedUtc
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -45,14 +46,13 @@ namespace _24HourProject.Services
                 var query =
                     ctx
                     .Replies
-                    .Where(e => e.UserID == id)
+                    .Where(e => e.UserId == id)
                     .Select(
                         e =>
                             new ReplyListItem
                             {
-                                ReplyID = e.ReplyID,
-                                Text = e.Text,
-                                CreatedUTC = e.CreatedUTC
+                                Text = e.Content,
+                                CreatedUTC = e.CreatedUtc
                             }
                     );
 
@@ -71,7 +71,6 @@ namespace _24HourProject.Services
                     e =>
                         new ReplyListItem
                         {
-                            ReplyID = e.ReplyID,
                             Text = e.Text,
                             CreatedUTC = e.CreatedUTC
                         }
@@ -85,9 +84,9 @@ namespace _24HourProject.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = GetReplyByID(model.ReplyID);
+                var entity = GetReplyByID(model.ReplyId);
 
-                entity.Text = model.Text;
+                entity.Content = model.Content;
                 entity.ModifiedUTC = model.ModifiedUTC;
 
                 return ctx.SaveChanges() > 0;

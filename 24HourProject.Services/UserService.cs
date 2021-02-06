@@ -1,4 +1,5 @@
 ﻿using _24HourProject.Data;
+using _24HourProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,7 +56,7 @@ namespace _24HourProject.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = GetUserByID(model.ID);
+                var entity = GetUserByID(model.UserID);
 
                 entity.Name = model.Name;
 

@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace _24HourProject.Services
 {
@@ -44,7 +46,7 @@ namespace _24HourProject.Services
             }
         }
 
-        public IEnumerable<Comment> GetCommentsByPostID(int id)
+        public IEnumerable<Comment> GetCommentsByPostID(Guid id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -54,8 +56,8 @@ namespace _24HourProject.Services
                     .Select(
                         e => new CommentListItem
                         {
-                            Text = e.text,
-                            CreatedUTC = e.CreatedUTC
+                            Text = e.Text,
+                            CreatedUTC = e.CreatedUtc
                         }
                     );
 
@@ -74,7 +76,7 @@ namespace _24HourProject.Services
                         e => new CommentListItem
                         {
                             Text = e.Text,
-                            CreatedUTC = e.CreatedUTC
+                            CreatedUTC = e.CreatedUtc
                         }
                     );
 
@@ -89,13 +91,13 @@ namespace _24HourProject.Services
                 var entity = GetCommentByID(model.CommentId);
 
                 entity.Text = model.Text;
-                entity.ModifiedUTC = model.ModifiedUTC;
+                entity.ModifiedUtc = model.ModifiedUtc;
 
                 return ctx.SaveChanges() > 0;
             }
         }
 
-        public bool DeleteComment(int id)
+        public bool DeleteComment(Guid id)
         {
             using (var ctx = new ApplicationDbContext())
             {

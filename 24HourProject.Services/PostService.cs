@@ -21,7 +21,7 @@ namespace _24HourProject.Services
             var entity = new Post
             {
                 Text = model.Text,
-                CreatedUTC = model.CreatedUTC
+                CreatedUtc = DateTimeOffset.Now
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -57,14 +57,14 @@ namespace _24HourProject.Services
             {
                 var query =
                     ctx.Posts
-                    .Where(e => e.UserID == id)
+                    .Where(e => e.Author == id)
                     .Select(
                         e => new PostListItem
                         {
                             PostID = e.PostID,
                             Text = e.Text,
-                            Author = e.UserID,
-                            CreatedUTC = e.CreatedUTC
+                            Author = e.Author,
+                            CreatedUTC = e.CreatedUtc
                         }
                     );
 
@@ -79,7 +79,7 @@ namespace _24HourProject.Services
                 var entity = GetPostByID(model.PostId);
 
                 entity.Text = model.Text;
-                entity.ModifiedUTC = model.ModifiedUTC;
+                entity.ModifiedUtc = model.ModifiedUtc;
 
                 return ctx.SaveChanges() > 0;
             }
