@@ -1,4 +1,5 @@
 ﻿using _24HourProject.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,12 @@ namespace _24HourProject.Controllers
 {
     public class ReplyController : ApiController
     {
+        private ReplyService CreateReplyService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var replyService = new ReplyService(userId);
+            return replyService; 
+        }
         public IHttpActionResult Get(Guid id)
         {
             ReplyService replyService = CreateReplyService();
