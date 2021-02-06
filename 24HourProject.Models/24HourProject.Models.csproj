@@ -72,17 +72,10 @@
     <Compile Include="UserListItem.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Properties\Properties\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\24HourProject.Data\24HourProject.Data.csproj">
       <Project>{160533b0-3ec8-4003-b652-26db010cb5e2}</Project>
       <Name>24HourProject.Data</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
