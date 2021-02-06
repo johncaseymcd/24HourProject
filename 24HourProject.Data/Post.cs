@@ -11,14 +11,17 @@ namespace _24HourProject.Data
     {
         [Key]
         public Guid PostID { get; set; }
-                
+
+        [Required]
         [Display(Name = "Post")]
         public string Title { get; set; }
 
+        [Required]
         [MaxLength(512, ErrorMessage = "Max character reached")]
         public string Text { get; set; }
 
-        public List<Comment> Comments { get; set; }
+        [Required]
+        public virtual List<Comment> Comments { get; set; }            
 
         [Required]
         public Guid Author { get; set; }
@@ -26,6 +29,7 @@ namespace _24HourProject.Data
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
 
+        [Required]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }
