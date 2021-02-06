@@ -26,7 +26,7 @@ namespace _24HourProject.Services
             }
        }
 
-       public Reply GetReplyByID(int id)
+       public Reply GetReplyByID(Guid id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -39,7 +39,7 @@ namespace _24HourProject.Services
             }
         }
 
-        public IEnumerable<Reply> GetRepliesByUserID(Guid id)
+        public IEnumerable<ReplyListItem> GetRepliesByUserID(Guid id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -52,15 +52,15 @@ namespace _24HourProject.Services
                             new ReplyListItem
                             {
                                 Text = e.Content,
-                                CreatedUTC = e.CreatedUtc
+                                CreatedUTC = e.CreatedUTC
                             }
                     );
 
-                return query.ToList<Reply>();
+                return query.ToList<ReplyListItem>();
             }
         }
 
-        public IEnumerable<Reply> GetRepliesByCommentID(int id)
+        public IEnumerable<ReplyListItem> GetRepliesByCommentID(Guid id)
         {
             using(var ctx = new ApplicationDbContext())
             {
@@ -71,12 +71,12 @@ namespace _24HourProject.Services
                     e =>
                         new ReplyListItem
                         {
-                            Text = e.Text,
+                            Text = e.Content,
                             CreatedUTC = e.CreatedUTC
                         }
                 );
 
-                return query.ToList<Reply>();
+                return query.ToList<ReplyListItem>();
             }            
         }
 
@@ -93,7 +93,7 @@ namespace _24HourProject.Services
             }
         }
 
-        public bool DeleteReply(int id)
+        public bool DeleteReply(Guid id)
         {
             using (var ctx = new ApplicationDbContext())
             {

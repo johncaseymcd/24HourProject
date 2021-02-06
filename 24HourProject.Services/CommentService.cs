@@ -46,7 +46,7 @@ namespace _24HourProject.Services
             }
         }
 
-        public IEnumerable<Comment> GetCommentsByPostID(Guid id)
+        public IEnumerable<CommentListItem> GetCommentsByPostID(Guid id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -61,11 +61,11 @@ namespace _24HourProject.Services
                         }
                     );
 
-                return query.ToList<Comment>();
+                return query.ToList<CommentListItem>();
             }
         }
 
-        public IEnumerable<Comment> GetCommentsByUserID(Guid id)
+        public IEnumerable<CommentListItem> GetCommentsByUserID(Guid id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -80,7 +80,7 @@ namespace _24HourProject.Services
                         }
                     );
 
-                return query.ToList<Comment>();
+                return query.ToList<CommentListItem>();
             }
         }
 

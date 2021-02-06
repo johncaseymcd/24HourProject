@@ -51,7 +51,7 @@ namespace _24HourProject.Services
             }
         }
 
-        public IEnumerable<Post> GetPostsByUserID(Guid id)
+        public IEnumerable<PostListItem> GetPostsByUserID(Guid id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -68,7 +68,7 @@ namespace _24HourProject.Services
                         }
                     );
 
-                return query.ToList<Post>();
+                return query.ToList<PostListItem>();
             }
         }
 
