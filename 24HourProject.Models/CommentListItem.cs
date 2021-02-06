@@ -10,5 +10,6 @@ namespace _24HourProject.Models
     {
         public int PostId { get; set; }
         public string Text { get; set; }
+        public DateTimeOffset CreatedUTC { get; set; }
     }
 }

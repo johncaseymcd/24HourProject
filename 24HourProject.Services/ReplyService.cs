@@ -16,7 +16,7 @@ namespace _24HourProject.Services
             {
                 Content = model.Reply,
                 UserId = model.Author,
-                CreatedUtc = model.CreatedUtc
+                CreatedUTC = model.CreatedUTC
             };
 
             using (var ctx = new ApplicationDbContext())

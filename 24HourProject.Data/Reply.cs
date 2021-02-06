@@ -11,7 +11,7 @@ namespace _24HourProject.Data
     public class Reply
     {
         [Key]
-        public int ReplyId { get; set; }
+        public Guid ReplyId { get; set; }
 
 
         [Required]
@@ -36,10 +36,10 @@ namespace _24HourProject.Data
         public virtual User User { get; set; }
 
         [Required]
-        public DateTimeOffset CreatedUtc { get; set; }
+        public DateTimeOffset CreatedUTC { get; set; }
 
         [Required]
-        public DateTimeOffset? ModifiedUtc { get; set; }
+        public DateTimeOffset? ModifiedUTC { get; set; }
     }
 }
 
