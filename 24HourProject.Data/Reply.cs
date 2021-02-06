@@ -13,17 +13,33 @@ namespace _24HourProject.Data
         [Key]
         public int ReplyId { get; set; }
 
+
+        [Required]
+        public Comment ReplyComment { get; set; }
+        
+        [Required]
+        public string Content { get; set; }
+        
+        [Required]
+        [ForeignKey(nameof(Comment))]
+        public Guid CommentID { get; set; }
+        public virtual Comment Comment { get; set; }
+
+        [Required]
+        [ForeignKey(nameof(Post))]
+        public Guid PostId { get; set; }
+        public virtual Post Post { get; set; }
+
         [Required]
         [ForeignKey(nameof(User))]
         public Guid UserId { get; set; }
         public virtual User User { get; set; }
 
-        [ForeignKey(nameof(Post))]
-        public Guid PostId { get; set; }
-        public virtual Post Post { get; set; }
+        [Required]
+        public DateTimeOffset CreatedUtc { get; set; }
 
-        public Comment ReplyComment { get; set; }
-        public string Content { get; set; }        
+        [Required]
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }
 
