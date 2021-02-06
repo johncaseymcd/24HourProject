@@ -21,12 +21,12 @@ namespace _24HourProject.Services
             var entity = new User()
             {
                 UserID = _userID,
-                Username = model.Username
+                Name = model.Name
             };
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Users.Add(entity);
+                ctx.User.Add(entity);
                 return ctx.SaveChanges() > 0;
             }
         }
@@ -35,7 +35,7 @@ namespace _24HourProject.Services
         {
            using (var ctx = new ApplicationDbContext())
             {
-                return ctx.Users.ToList<User>();
+                return ctx.User.ToList<User>();
             }
         }
 
@@ -45,21 +45,21 @@ namespace _24HourProject.Services
             {
                 var entity =
                     ctx
-                        .Users
+                        .User
                         .Single(e => e.UserID == id);
                 return entity;
             }
         }
 
-        public bool UpdateUser(UserEdit model)
+        public bool UpdateUser(UserDetail model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity = GetUserByID(model.ID);
 
-                entity.Username = model.Username;
+                entity.Name = model.Name;
 
-                return ctx.SaveChanges > 0;
+                return ctx.SaveChanges() > 0;
             }
         }
 
@@ -69,7 +69,7 @@ namespace _24HourProject.Services
             {
                 var entity = GetUserByID(id);
 
-                ctx.Users.Remove(entity);
+                ctx.User.Remove(entity);
 
                 return ctx.SaveChanges() > 0;
             }
