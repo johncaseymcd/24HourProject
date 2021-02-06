@@ -10,6 +10,13 @@ namespace _24HourProject.Services
 {
     public class ReplyService
     {
+        private readonly Guid _replyID;
+
+        public ReplyService(Guid id)
+        {
+            _replyID = id;
+        }
+
        public bool CreateReply(ReplyCreate model)
        {
             var entity = new Reply()
