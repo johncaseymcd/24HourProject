@@ -30,7 +30,6 @@ namespace _24HourProject.Data
             return new ApplicationDbContext();
         }
 
-        //public DbSet<User> Users { get; set; }
         public DbSet<User> User { get; set; }
         public DbSet<Comment> Comments { get; set; }
 

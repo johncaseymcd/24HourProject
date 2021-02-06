@@ -25,15 +25,13 @@ namespace _24HourProject.Data
         public int PostId { get; set; }
         public virtual Post Post { get; set; }
 
-        //[Required]
-        //[ForeignKey(nameof(User))]
+        [Required]
+        [ForeignKey(nameof(User))]
         public int UserId { get; set; }
-        //public virtual User User { get; set; }              
+        public virtual User User { get; set; }              
           
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
-
-        [Required]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

@@ -33,7 +33,7 @@ namespace _24HourProject.Services
             }
         }
 
-        public IEnumerable<Post> GetPosts()
+        public List<Post> GetPosts()
         {
             using (var ctx = new ApplicationDbContext())
             {

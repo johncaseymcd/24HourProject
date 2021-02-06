@@ -1,4 +1,5 @@
-﻿using _24HourProject.Services;
+﻿using _24HourProject.Models;
+using _24HourProject.Services;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -15,13 +16,25 @@ namespace _24HourProject.Controllers
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var replyService = new ReplyService(userId);
-            return replyService; 
+            return replyService;
         }
         public IHttpActionResult Get(int id)
         {
             ReplyService replyService = CreateReplyService();
             var reply = replyService.GetReplyByID(id);
             return Ok(reply);
+        }
+        public IHttpActionResult Post(ReplyCreate reply)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateReplyService();
+
+            if (!service.CreateReply(reply))
+                return InternalServerError();
+
+            return Ok();
         }
     }
 }

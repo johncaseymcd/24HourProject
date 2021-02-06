@@ -21,14 +21,14 @@ namespace _24HourProject.Services
        {
             using (var ctx = new ApplicationDbContext())
             {
-                var user =
-                    ctx.User
-                    .Single(e => e.UniqueID == _userID);
+                //var user =
+                    //ctx.User
+                    //.Single(e => e.UniqueID == _userID);
 
                 var entity = new Reply()
                 {
                     Content = model.Reply,
-                    UserId = user.UserID,
+                    //UserId = user.UserID,
                     CreatedUTC = model.CreatedUTC
                 };
 

@@ -12,10 +12,6 @@ namespace _24HourProject.Data
     {
         [Key]
         public int ReplyId { get; set; }
-
-
-        [Required]
-        public Comment ReplyComment { get; set; }
         
         [Required]
         public string Content { get; set; }
@@ -26,19 +22,12 @@ namespace _24HourProject.Data
         public virtual Comment Comment { get; set; }
 
         [Required]
-        [ForeignKey(nameof(Post))]
-        public int PostId { get; set; }
-        public virtual Post Post { get; set; }
-
-        [Required]
         [ForeignKey(nameof(User))]
         public int UserId { get; set; }
         public virtual User User { get; set; }
 
         [Required]
         public DateTimeOffset CreatedUTC { get; set; }
-
-        [Required]
         public DateTimeOffset? ModifiedUTC { get; set; }
     }
 }

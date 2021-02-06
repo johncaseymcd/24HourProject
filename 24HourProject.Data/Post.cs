@@ -19,16 +19,12 @@ namespace _24HourProject.Data
         [Required]
         [MaxLength(512, ErrorMessage = "Max character reached")]
         public string Text { get; set; }
-
-        [Required]
-        public virtual List<Comment> Comments { get; set; }            
+        //public virtual List<Comment> Comments { get; set; } = new List<Comment>();
 
         public Guid Author { get; set; }
 
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
-
-        [Required]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

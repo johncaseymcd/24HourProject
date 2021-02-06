@@ -7,13 +7,13 @@ namespace _24HourProject.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class Test1 : IMigrationMetadata
+    public sealed partial class Key : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Test1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Key));
         
         string IMigrationMetadata.Id
         {
-            get { return "202102061736043_Test1"; }
+            get { return "202102061955592_Key"; }
         }
         
         string IMigrationMetadata.Source

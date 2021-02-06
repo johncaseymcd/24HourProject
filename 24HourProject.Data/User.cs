@@ -21,20 +21,5 @@ namespace _24HourProject.Data
         [Required]
         [Display(Name = "Enter Email")]
         public string Email { get; set; }
-
-        [Required]
-        [ForeignKey(nameof(Comment))]
-        public int CommentId { get; set; }
-        public virtual Comment Comment { get; set; }
-
-        [Required]
-        [ForeignKey(nameof(Post))]
-        public int PostId { get; set; }
-        public virtual Post Post { get; set; }
-
-        [Required]
-        [ForeignKey(nameof(Reply))]
-        public int ReplyId { get; set; }
-        public virtual Reply Reply { get; set; }
     }  
 }
