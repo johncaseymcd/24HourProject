@@ -10,9 +10,9 @@ namespace _24HourProject.Services
 {
     public class UserService
     {
-        private readonly Guid _userID;
+        private readonly int _userID;
 
-        public UserService(Guid userID)
+        public UserService(int userID)
         {
             _userID = userID;
         }
@@ -40,7 +40,7 @@ namespace _24HourProject.Services
             }
         }
 
-        public User GetUserByID(Guid id)
+        public User GetUserByID(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -64,7 +64,7 @@ namespace _24HourProject.Services
             }
         }
 
-        public bool DeleteUser(Guid id)
+        public bool DeleteUser(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {

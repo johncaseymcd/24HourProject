@@ -10,7 +10,7 @@ namespace _24HourProject.Models
     public class PostListItem
     {
         [Required]
-        public Guid PostID { get; set; }
+        public int PostID { get; set; }
         [Required]
         public string Title { get; set; }
         public string Text { get; set; }

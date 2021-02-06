@@ -11,7 +11,7 @@ namespace _24HourProject.Models
     public class ReplyDetail
     {
         [Required]
-        public Guid ReplyId { get; set; }
+        public int ReplyId { get; set; }
         public Guid Author { get; set; }
         [Required]
         public Comment ReplyComment { get; set; }

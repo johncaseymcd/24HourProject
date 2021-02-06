@@ -23,8 +23,7 @@ namespace _24HourProject.Data
         [Required]
         public virtual List<Comment> Comments { get; set; }            
 
-        //[Required]
-        //public Guid Author { get; set; }
+        public Guid Author { get; set; }
 
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
