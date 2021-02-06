@@ -12,19 +12,20 @@ namespace _24HourProject.Services
 {
     public class CommentService
     {
-        private readonly Guid _commentID;
+        private readonly Guid _userID;
         
         public CommentService(Guid id)
         {
-            _commentID = id;
+            _userID = id;
         }
 
         public bool CreateComment(CommentCreate model)
         {
             var entity = new Comment
             {
-                CommentId = _commentID,
-                Text = model.Text
+                Author = _userID,
+                Text = model.Text,
+                CreatedUtc = DateTimeOffset.Now
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -34,7 +35,7 @@ namespace _24HourProject.Services
             }
         }
 
-        public Comment GetCommentByID(Guid id)
+        public Comment GetCommentByID(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -46,7 +47,7 @@ namespace _24HourProject.Services
             }
         }
 
-        public IEnumerable<CommentListItem> GetCommentsByPostID(Guid id)
+        public IEnumerable<CommentListItem> GetCommentsByPostID(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -65,7 +66,7 @@ namespace _24HourProject.Services
             }
         }
 
-        public IEnumerable<CommentListItem> GetCommentsByUserID(Guid id)
+        public IEnumerable<CommentListItem> GetCommentsByUserID(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -97,7 +98,7 @@ namespace _24HourProject.Services
             }
         }
 
-        public bool DeleteComment(Guid id)
+        public bool DeleteComment(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {

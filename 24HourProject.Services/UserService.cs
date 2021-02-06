@@ -21,7 +21,7 @@ namespace _24HourProject.Services
         {
             var entity = new User()
             {
-                UserID = _userID,
+                UniqueID = _userID,
                 Name = model.Name
             };
 
@@ -40,7 +40,7 @@ namespace _24HourProject.Services
             }
         }
 
-        public User GetUserByID(Guid id)
+        public User GetUserByID(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {

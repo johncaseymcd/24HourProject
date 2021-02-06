@@ -33,7 +33,7 @@ namespace _24HourProject.Services
             }
        }
 
-       public Reply GetReplyByID(Guid id)
+       public Reply GetReplyByID(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -100,7 +100,7 @@ namespace _24HourProject.Services
             }
         }
 
-        public bool DeleteReply(Guid id)
+        public bool DeleteReply(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {

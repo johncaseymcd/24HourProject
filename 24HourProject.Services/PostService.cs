@@ -41,7 +41,7 @@ namespace _24HourProject.Services
             }
         }
 
-        public Post GetPostByID(Guid id)
+        public Post GetPostByID(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -87,7 +87,7 @@ namespace _24HourProject.Services
             }
         }
 
-        public bool DeletePost(Guid id)
+        public bool DeletePost(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
