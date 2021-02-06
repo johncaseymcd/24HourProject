@@ -10,8 +10,8 @@ namespace _24HourProject.Data
     public class Post
     {
         [Key]
-        public int PostID { get; set; }
-
+        public Guid PostID { get; set; }
+                
         [Display(Name = "Post")]
         public string Title { get; set; }
 
@@ -22,6 +22,11 @@ namespace _24HourProject.Data
 
         [Required]
         public Guid Author { get; set; }
+
+        [Required]
+        public DateTimeOffset CreatedUtc { get; set; }
+
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }
 
