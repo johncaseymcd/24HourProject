@@ -11,7 +11,7 @@ namespace _24HourProject.Services
     {
        public bool CreateReply(ReplyCreate model)
        {
-            var entity = new ReplyService()
+            var entity = new Reply()
             {
                 Text = model.Text,
                 Author = model.UserID,
@@ -32,7 +32,7 @@ namespace _24HourProject.Services
                 var entity =
                     ctx
                     .Replies
-                    .Single(e => e.ReplyID == id);
+                    .Single(e => e.ReplyId == id);
 
                 return entity;
             }
@@ -81,7 +81,7 @@ namespace _24HourProject.Services
             }            
         }
 
-        public bool UpdateReply(ReplyEdit model)
+        public bool UpdateReply(ReplyDetail model)
         {
             using (var ctx = new ApplicationDbContext())
             {

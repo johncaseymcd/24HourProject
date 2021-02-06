@@ -21,7 +21,6 @@ namespace _24HourProject.Services
             var entity = new Post
             {
                 Text = model.Text,
-                Author = model.Author,
                 CreatedUTC = model.CreatedUTC
             };
 
@@ -40,7 +39,7 @@ namespace _24HourProject.Services
             }
         }
 
-        public Post GetPostByID(int id)
+        public Post GetPostByID(Guid id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -73,20 +72,20 @@ namespace _24HourProject.Services
             }
         }
 
-        public bool UpdatePost(PostEdit model)
+        public bool UpdatePost(PostDetail model)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = GetPostByID(model.PostID);
+                var entity = GetPostByID(model.PostId);
 
-                entity.Text = model.text;
+                entity.Text = model.Text;
                 entity.ModifiedUTC = model.ModifiedUTC;
 
                 return ctx.SaveChanges() > 0;
             }
         }
 
-        public bool DeletePost(int id)
+        public bool DeletePost(Guid id)
         {
             using (var ctx = new ApplicationDbContext())
             {

@@ -10,13 +10,19 @@ namespace _24HourProject.Services
 {
     public class CommentService
     {
+        private readonly Guid _commentID;
+        
+        public CommentService(Guid id)
+        {
+            _commentID = id;
+        }
+
         public bool CreateComment(CommentCreate model)
         {
             var entity = new Comment
             {
-                Text = model.Text,
-                Author = model.UserID,
-                CreatedUTC = model.CreatedUTC
+                CommentId = _commentID,
+                Text = model.Text
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -26,13 +32,13 @@ namespace _24HourProject.Services
             }
         }
 
-        public Comment GetCommentByID(int id)
+        public Comment GetCommentByID(Guid id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx.Comments
-                    .Single(e => e.CommentID == id);
+                    .Single(e => e.CommentId == id);
 
                 return entity;
             }
@@ -44,7 +50,7 @@ namespace _24HourProject.Services
             {
                 var query =
                     ctx.Comments
-                    .Where(e => e.PostID == id)
+                    .Where(e => e.PostId == id)
                     .Select(
                         e => new CommentListItem
                         {
@@ -63,11 +69,10 @@ namespace _24HourProject.Services
             {
                 var query =
                     ctx.Comments
-                    .Where(e => e.UserID == id)
+                    .Where(e => e.UserId == id)
                     .Select(
                         e => new CommentListItem
                         {
-                            CommentID = e.CommentID,
                             Text = e.Text,
                             CreatedUTC = e.CreatedUTC
                         }
@@ -77,11 +82,11 @@ namespace _24HourProject.Services
             }
         }
 
-        public bool UpdateComment(CommentEdit model)
+        public bool UpdateComment(CommentDetail model)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = GetCommentByID(model.CommentID);
+                var entity = GetCommentByID(model.CommentId);
 
                 entity.Text = model.Text;
                 entity.ModifiedUTC = model.ModifiedUTC;
