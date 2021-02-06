@@ -12,6 +12,12 @@ namespace _24HourProject.Controllers
     [Authorize]
     public class CommentsController : ApiController
     {
+        private CommentService CreateCommentService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var commentService = new CommentService(userId);
+            return commentService;
+        }
         public IHttpActionResult Get(Guid id)
         {
             CommentService commentService = CreateCommentService();
