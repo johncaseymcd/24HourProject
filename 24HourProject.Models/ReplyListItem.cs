@@ -14,5 +14,6 @@ namespace _24HourProject.Models
         public int ReplyId { get; set; }
         public Comment ReplyComment { get; set; }
         public string Text { get; set; }
+        public DateTimeOffset CreatedUTC { get; set; }
     }
 }
