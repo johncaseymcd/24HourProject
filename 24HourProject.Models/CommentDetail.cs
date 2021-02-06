@@ -10,7 +10,7 @@ namespace _24HourProject.Models
     public class CommentDetail
     {
         [Required]
-        public Guid CommentId { get; set; }
+        public int CommentId { get; set; }
         [Required]
         public string Text { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }

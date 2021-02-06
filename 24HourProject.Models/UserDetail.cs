@@ -10,7 +10,7 @@ namespace _24HourProject.Models
     public class UserDetail
     {
         [Required]
-        public Guid UserID { get; set; }
+        public int UserID { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
     }

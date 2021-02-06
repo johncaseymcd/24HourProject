@@ -12,9 +12,9 @@ namespace _24HourProject.Services
 {
     public class CommentService
     {
-        private readonly Guid _commentID;
+        private readonly int _commentID;
         
-        public CommentService(Guid id)
+        public CommentService(int id)
         {
             _commentID = id;
         }
@@ -34,7 +34,7 @@ namespace _24HourProject.Services
             }
         }
 
-        public Comment GetCommentByID(Guid id)
+        public Comment GetCommentByID(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -46,7 +46,7 @@ namespace _24HourProject.Services
             }
         }
 
-        public IEnumerable<CommentListItem> GetCommentsByPostID(Guid id)
+        public IEnumerable<CommentListItem> GetCommentsByPostID(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -65,7 +65,7 @@ namespace _24HourProject.Services
             }
         }
 
-        public IEnumerable<CommentListItem> GetCommentsByUserID(Guid id)
+        public IEnumerable<CommentListItem> GetCommentsByUserID(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -97,7 +97,7 @@ namespace _24HourProject.Services
             }
         }
 
-        public bool DeleteComment(Guid id)
+        public bool DeleteComment(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
