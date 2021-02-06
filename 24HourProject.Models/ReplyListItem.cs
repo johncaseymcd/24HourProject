@@ -13,5 +13,6 @@ namespace _24HourProject.Models
         [Required]
         public int ReplyId { get; set; }
         public Comment ReplyComment { get; set; }
+        public string Text { get; set; }
     }
 }

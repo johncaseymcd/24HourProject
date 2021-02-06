@@ -13,5 +13,6 @@ namespace _24HourProject.Models
         public string Title { get; set; }
         [Required]
         public string Text { get; set; }
+        public DateTimeOffset CreatedUtc { get; set; }
     }
 }

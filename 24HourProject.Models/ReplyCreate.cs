@@ -13,5 +13,7 @@ namespace _24HourProject.Models
         public Guid Author { get; set; }
         [Required]
         public string Reply { get; set; }
+        [Required]
+        public DateTimeOffset CreatedUtc { get; set; }
     }
 }
