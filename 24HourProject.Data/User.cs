@@ -11,7 +11,8 @@ namespace _24HourProject.Data
     public class User
     {
         [Key]        
-        public Guid UserID { get; set; }
+        public int UserID { get; set; }
+        public Guid UniqueID { get; set; }
         
         [Required]
         [Display(Name = "Enter Name")]
