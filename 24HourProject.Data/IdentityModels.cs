@@ -1,4 +1,5 @@
-﻿using System.Security.Claims;
+﻿using System.Data.Entity;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -20,7 +21,7 @@ namespace _24HourProject.Data
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("DefaultConnection")
         {
         }
         
@@ -28,5 +29,12 @@ namespace _24HourProject.Data
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<User> User { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+
+        public DbSet<Reply> Replies { get; set; }
+
+        public DbSet<Post> Posts { get; set; }
     }
 }

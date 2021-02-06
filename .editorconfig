@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# CS0006: Metadata file 'C:\ElevenFiftyProjects\24HourProject\24HourProject\24HourProject.Services\bin\Debug\24HourProject.Services.dll' could not be found
+dotnet_diagnostic.CS0006.severity = warning
