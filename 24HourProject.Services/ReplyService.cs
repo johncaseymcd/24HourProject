@@ -19,15 +19,19 @@ namespace _24HourProject.Services
 
        public bool CreateReply(ReplyCreate model)
        {
-            var entity = new Reply()
-            {
-                Content = model.Reply,
-                UniqueID = _userID,
-                CreatedUTC = model.CreatedUTC
-            };
-
             using (var ctx = new ApplicationDbContext())
             {
+                var user =
+                    ctx.User
+                    .Single(e => e.UniqueID == _userID);
+
+                var entity = new Reply()
+                {
+                    Content = model.Reply,
+                    UserId = user.UserID,
+                    CreatedUTC = model.CreatedUTC
+                };
+
                 ctx.Replies.Add(entity);
                 return ctx.SaveChanges() > 0;
             }
@@ -46,7 +50,7 @@ namespace _24HourProject.Services
             }
         }
 
-        public IEnumerable<ReplyListItem> GetRepliesByUserID(Guid id)
+        public IEnumerable<ReplyListItem> GetRepliesByUserID(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -67,7 +71,7 @@ namespace _24HourProject.Services
             }
         }
 
-        public IEnumerable<ReplyListItem> GetRepliesByCommentID(Guid id)
+        public IEnumerable<ReplyListItem> GetRepliesByCommentID(int id)
         {
             using(var ctx = new ApplicationDbContext())
             {
